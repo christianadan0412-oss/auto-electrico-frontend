@@ -17,7 +17,8 @@ function App() {
     const reserva = { nombre, fecha, folio };
 
     try {
-      const res = await fetch("https://auto-electrico-frontend.onrender.com", {
+      // <-- Aquí va la URL de tu backend en Render
+      const res = await fetch("https://backend-colmena.onrender.com/reservas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reserva),
@@ -25,13 +26,14 @@ function App() {
 
       if (res.ok) {
         setMensaje(`✅ Reserva realizada. Folio: ${folio}`);
-        generarPDF(reserva); // <-- Genera el ticket
+        generarPDF(reserva); // Genera el ticket
         setNombre("");
         setFecha("");
       } else {
         setMensaje("❌ Error al hacer la reserva.");
       }
     } catch (error) {
+      console.error(error);
       setMensaje("❌ Error al conectar con el servidor.");
     }
   };
