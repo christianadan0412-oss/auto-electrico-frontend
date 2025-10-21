@@ -19,10 +19,11 @@ function App() {
     try {
       // URL de tu backend en Render
       const res = await fetch("https://backend-colmena.onrender.com/reservas", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(reserva),
-      });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(reserva),
+});
+
 
       if (res.ok) {
         setMensaje(`✅ Reserva realizada. Folio: ${folio}`);
