@@ -17,7 +17,7 @@ function App() {
     const reserva = { nombre, fecha, folio };
 
     try {
-      // <-- Aquí va la URL de tu backend en Render
+      // URL de tu backend en Render
       const res = await fetch("https://backend-colmena.onrender.com/reservas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -38,7 +38,6 @@ function App() {
     }
   };
 
-  // Función para generar PDF
   const generarPDF = ({ nombre, fecha, folio }) => {
     const doc = new jsPDF();
     doc.setFontSize(18);
