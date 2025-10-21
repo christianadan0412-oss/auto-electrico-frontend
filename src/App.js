@@ -17,7 +17,7 @@ function App() {
     const reserva = { nombre, fecha, folio };
 
     try {
-      const res = await fetch("http://localhost:5000/reservas", {
+      const res = await fetch("https://auto-electrico-frontend.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reserva),
